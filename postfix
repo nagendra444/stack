@@ -1,0 +1,39 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+postfix(string s)
+{
+  stack<char> st;
+  for(int i=0;s[i]!='/0';i++)
+  {
+    if(isdigit(s[i])
+      st.push(s[i]-'0');
+    else
+    {
+      int v1 = st.top();
+      st.pop();
+      int v2 = st.top();
+      st.pop();
+      char op = s[i];
+      switch(op):
+      {
+        case '+':
+          int val = val2+val1;
+          st.push(val);
+          break;
+        case '-':
+          int val = val2-val1;
+          st.push(val);
+          break;
+        case '*':
+          int val = val2*val1;
+          st.push(val);
+          break;
+        case '/':
+           int val = val2/val1;
+           st.push(val);
+           break;
+        }
+     }
+     return st.top();
+}
