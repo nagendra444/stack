@@ -13,9 +13,14 @@ void next_greater(int arr[],int n)
          }
       while(st.empty()==false && st.top()<a[i])
       {
-          cout<<st.top()<<" "<<arr[i];
+          cout<<st.top()<<" "<<arr[i]<<endl;
           st.pop();
       }
       st.push(a[i]);
+    }
+    while(st.empty()==false)
+    {
+      cout<<st.top()<<" "<<"-1"<<endl;
+    }
 }
          
