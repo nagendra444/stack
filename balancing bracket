@@ -1,0 +1,32 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+bool balance(string s)
+{
+stack<char> sc;
+for(int i=0;s[i]!='/0';i++)
+{
+  if(s[i]=='(')
+    {
+      sc.push(s[i]);
+    }
+  else
+    {
+      if(sc.empty())
+        {
+          return 0;
+        }
+      else
+      {
+        sc.pop();
+      }
+    }
+ }
+ if(!sc.empty())
+ {
+  return 0;
+ }
+ else
+  return 1;
+ }
+  
