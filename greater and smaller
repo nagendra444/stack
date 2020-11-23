@@ -1,0 +1,103 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+vector<int> ngeRight(int arr[],int n,vector<int> &ngeR)
+{
+    //vector<int> ngeR(n);
+    
+    stack<int> st;
+    
+    for(int i=n-1;i>=0;i++)
+    {
+        
+        while(!st.empty() && cur>=st.top()) st.pop()
+        if(st.empty()) ngeR[i] = -1;
+        else ngeR[i] = st.top();
+        st.push(arr[i]);
+        
+    }
+    //return ngeR;
+    
+    
+    
+}
+vector<int> ngeLeft(int arr[],int n,vector<int> &ngeL)
+{
+    //vector<int> ngeL(n);
+    
+    stack<int> st;
+    
+    for(int i=0;i<n;i++)
+    {
+    
+        while(!st.empty() && cur>=st.top()) st.pop();
+        if(st.empty()) ngeL[i] = -1;
+        else ngeL[i] = st.top();
+        st.push(arr[i]);
+    }
+    //return ngeL;
+    
+    
+    
+}
+vector<int> nseRight(int arr[],int n,vector<int> &nseR)
+{
+    //vector<int> nseR(n);
+    
+    stack<int> st;
+    
+    for(int i=n-1;i>=0;i++)
+    {
+        while(!st.empty() && cur<=st.top()) st.pop();
+        if(st.empty()) nseR[i] = -1;
+        else nseR[i] = st.top();
+        st.push(arr[i]);
+    }
+    //return nseR;
+    
+    
+}
+
+void nseLeft(int arr[],int n,vector<int> &nseL)
+{
+    //vector<int> nseL(n);
+    
+    stack<int> st;
+    
+    for(int i=0;i<n;i++)
+    {
+        while(!st.empty() && cur<=st.top()) st.pop();
+        if(st.empty()) nseR[i] = -1;
+        else nseL[i] = st.top();
+        st.push(arr[i]);
+    }
+    
+    //return nseL;
+    
+}
+int main() {
+	// your code goes here
+	
+	
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++)
+	{
+	    cin>>arr[i];
+	}
+	vector<int> ngeR;
+	vector<int> ngeL;
+	vector<int> nseR;
+	vector<int> nseL;
+	
+	ngeRight(int arr,n,ngeR);  //calling for NGE on right side
+	ngeLeft(int arr,n,ngeL);  //calling for NGE on left side
+	nseRight(int arr,n,nseR);  //calling for NSe on right side
+	nseLeft(int arr,n,nseL); //calling for NSE on left side
+	
+	
+	return 0;
+}
